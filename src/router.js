@@ -4,13 +4,13 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
-import page from './app.vue'
-import login from '../components/login.vue'
+import app from './app.vue'
+import login from './components/login.vue'
 
 
 var router=new VueRouter({
     routes:[
-    {path: '/',component:page},
+    {path: '/',component:app},
     {path: '/login/:tag',component:login},
     ],
 

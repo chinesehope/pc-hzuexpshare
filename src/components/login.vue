@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-14 13:26:13
+ * @LastEditTime: 2019-09-26 11:42:19
+ * @LastEditors: Please set LastEditors
+ -->
 <template>
   <div>
     <div class="logo">
@@ -8,12 +15,12 @@
     <div class="container loginBox justify-content mt-5 p-5">
         <div class="loginHeader mb-5">
             <div class="nav mt-5" v-if="Tag==1">
-                <button class="btn btn-lg border-bottom w-50 btn-success">登陸</button>
-                <button class="btn btn-lg border-bottom w-50" @click="tag">注冊</button>
+                <button class="btn btn-lg border-bottom w-50 btn-success">登录</button>
+                <button class="btn btn-lg border-bottom w-50" @click="tag">注册</button>
             </div>
             <div class="nav mt-5" v-else>
-                <button class="btn btn-lg border-bottom w-50" @click="tag">登陸</button>
-                <button class="btn btn-lg border-bottom w-50  btn-success">注冊</button>
+                <button class="btn btn-lg border-bottom w-50" @click="tag">登录</button>
+                <button class="btn btn-lg border-bottom w-50  btn-success">注册</button>
             </div>
         </div>
         <div class="loginbody" v-if="Tag==1">
@@ -48,6 +55,14 @@ export default {
         }
     },
     methods:{
+        setCookie(cname, cvalue, exdays){
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        console.info(cname + "=" + cvalue + "; " + expires);
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+        console.info(document.cookie);
+        },
         tag(){
             this.Tag=!this.Tag;
         },
